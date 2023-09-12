@@ -14,10 +14,14 @@ RUN gpg --batch --passphrase '' --quick-gen-key kry9ton default default
 
 ADD supervisord.conf /etc/supervisor/
 ADD nginx.conf /etc/nginx/sites-enabled/default
+ADD termux-apt-repo.py /
+RUN chmod +x /termux-apt-repo.py
 ADD startup.sh /
 ADD observer.py /
 ADD scan.py /
-ADD termux-apt-repo.py /
+
+RUN mkdir -p /data/web/
+RUN mkdir -p /data/deb/
 
 EXPOSE 80
 VOLUME /data

@@ -7,13 +7,13 @@ from watchdog.observers import Observer
 from observer import event_handler, data_tree
 
 def main():
-    observer = Observer()
-    observer.schedule(event_handler, data_tree[1], recursive=False)
-    observer.start()
-
     for path in data_tree:
         if not os.path.exists(path):
             os.makedirs(path)
+
+    observer = Observer()
+    observer.schedule(event_handler, data_tree[1], recursive=False)
+    observer.start()
 
     try:
         while True:
