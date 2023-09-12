@@ -14,8 +14,10 @@ RUN gpg --batch --passphrase '' --quick-gen-key kry9ton default default
 
 ADD supervisord.conf /etc/supervisor/
 ADD nginx.conf /etc/nginx/sites-enabled/default
-ADD termux-apt-repo.py /
-RUN chmod +x /termux-apt-repo.py
+
+ADD termux-apt-repo.py /bin/termux-apt-repo
+RUN chmod +x /bin/termux-apt-repo
+
 ADD startup.sh /
 ADD observer.py /
 ADD scan.py /
