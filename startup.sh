@@ -1,4 +1,4 @@
 #!/bin/bash
 
-mkdir -p /data/dists/trusty/main/binary-amd64/
+mkdir -p /data/dists/termux/sc/main/binary-aarch64/
 exec /usr/bin/supervisord -n

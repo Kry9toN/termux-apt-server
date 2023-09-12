@@ -22,12 +22,12 @@ def info(msg):
 
 def do_scan():
     info('Scanning...')
-    for dist in os.getenv('DISTS', 'trusty').split(','):
-        for arch in os.getenv('ARCHS', 'amd64,i386').split(','):
+    for dist in os.getenv('DISTS', 'termux').split(','):
+        for arch in os.getenv('ARCHS', 'aarch64,arm').split(','):
             path = '/data/dists/{}/main/binary-{}'.format(dist, arch)
             if not os.path.exists(path):
                 os.makedirs(path)
-            cmd = 'dpkg-scanpackages -m . | gzip -9c > {0}/Packages.gz'.format(path)
+            cmd = f'termux-apt-repo {path} /data/'
             sp.check_call(cmd, shell=True, close_fds=True)
     info('Scanning...done')
 
