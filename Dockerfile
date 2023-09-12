@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
     && apt-get install -y --force-yes --no-install-recommends dpkg-dev nginx supervisor python3 python3-pip gnupg \
-    && pip3 install termux-apt-repo watchdog \
+    && pip3 install watchdog \
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
@@ -17,6 +17,7 @@ ADD nginx.conf /etc/nginx/sites-enabled/default
 ADD startup.sh /
 ADD observer.py /
 ADD scan.py /
+ADD termux-apt-repo.py /
 
 EXPOSE 80
 VOLUME /data

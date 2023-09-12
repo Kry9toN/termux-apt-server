@@ -11,7 +11,7 @@ class ObserverFile(FileSystemEventHandler):
         else:
             path = event.src_path
             print(f'New file added: {path}')
-            cmd = f'termux-apt-repo {data_tree[1]} {data_tree[0]} termux sc -s'
+            cmd = f'python3 termux-apt-repo {data_tree[1]} {data_tree[0]} termux sc -s'
             sp.check_call(cmd, shell=True, close_fds=True)
 
 event_handler = ObserverFile()
