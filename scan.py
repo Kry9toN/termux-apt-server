@@ -2,7 +2,7 @@
 
 import subprocess as sp
 from gevent.queue import Queue
-from Queue import Empty as QueueEmpty
+from queue import Empty as QueueEmpty
 from gevent import spawn
 import signal
 from gevent import select
