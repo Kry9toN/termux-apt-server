@@ -43,7 +43,7 @@ def main():
                     line = p.stdout.readline().strip()
                     if len(line) == 0:
                         continue
-                    if line.endswith('Packages.gz'):
+                    if line.endswith('Release'):
                         continue
                     queue.put(('msg', line))
         except select.error:
