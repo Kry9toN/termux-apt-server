@@ -1,4 +1,5 @@
 import subprocess as sp
+import time
 
 from watchdog.events import FileSystemEventHandler
 
@@ -11,6 +12,7 @@ class ObserverFile(FileSystemEventHandler):
         else:
             path = event.src_path
             print(f'New file added: {path}')
+            time.sleep(1)
             cmd = f'termux-apt-repo {data_tree[1]} {data_tree[0]} termux sc -s'
             sp.check_call(cmd, shell=True, close_fds=True)
 
