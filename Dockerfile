@@ -22,9 +22,6 @@ ADD startup.sh /
 ADD observer.py /
 ADD scan.py /
 
-RUN mkdir -p /data/web/
-RUN mkdir -p /data/deb/
-
 EXPOSE 80
 VOLUME /data
 ENTRYPOINT ["/startup.sh"]
